@@ -63,7 +63,7 @@ module.exports = (env) => {
       plugins: [
         new HtmlWebpackPlugin({
           title: 'MY_APP',
-          template: 'src/public/index.html',
+          template: 'public/index.html',
           filename: 'index.html',
           inject: true,
           minify: {
