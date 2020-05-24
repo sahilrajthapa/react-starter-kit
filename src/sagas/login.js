@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
-import { loginUser } from '../services/login';
+import loginUser  from '../services/login';
 import loginActions, { Types } from '../actions/login';
 
 export function* loginRequest(action) {

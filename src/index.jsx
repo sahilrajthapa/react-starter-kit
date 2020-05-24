@@ -7,7 +7,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import App from './app';
 import Loader from './components/common/Loader';
 import configureStore from './store';
-import { history } from './utils/history';
+import  history  from './utils/history';
 import './assets/css/index.css';
 
 const { persistor, store } = configureStore();
@@ -31,6 +31,7 @@ render(App);
 
 if (module.hot) {
   module.hot.accept('./app', () => {
+    // eslint-disable-next-line global-require
     const NextApp = require('./app').default;
     render(NextApp);
   });

@@ -1,3 +1,4 @@
-import { api, authenticated } from './index';
+import { api } from './index';
 
-export const loginUser = (payload) => api.post('/login/', payload);
+const loginUser = (payload) => api.post('/login/', payload);
+export default loginUser

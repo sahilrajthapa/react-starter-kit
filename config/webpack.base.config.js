@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, '../src');
 
-module.exports = (env) => {
+module.exports = (env = {}) => {
   const { NODE_ENV } = env;
   return merge([
     {
@@ -16,6 +16,7 @@ module.exports = (env) => {
         publicPath: '/',
       },
       resolve: {
+        extensions: ['.js', '.jsx', ],
         alias: {
           '@src': path.resolve(__dirname, '../src'),
         },
@@ -23,9 +24,19 @@ module.exports = (env) => {
       module: {
         rules: [
           {
-            test: /\.js$/,
+            enforce: 'pre',
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: ['babel-loader', 'eslint-loader'],
+            loader: 'eslint-loader',
+            options: {
+              failOnWarning: true,
+              failOnError: true,
+            },
+          },
+          {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: 'babel-loader',
           },
           {
             test: /\.css$/,

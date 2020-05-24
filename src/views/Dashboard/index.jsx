@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import loginActions from '@src/actions/login';
 
@@ -11,6 +12,7 @@ function Dashboard({ username = 'John Doe', logoutRequest }) {
             <div className="dashboard">
               <h1 className="text-center login-title">Hello {username}</h1>
               <button
+                type="button"
                 className="btn btn-lg btn-primary btn-block"
                 onClick={logoutRequest}
               >
@@ -22,6 +24,11 @@ function Dashboard({ username = 'John Doe', logoutRequest }) {
       </div>
     </div>
   );
+}
+
+Dashboard.propTypes = {
+  username: PropTypes.string.isRequired,
+  logoutRequest: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

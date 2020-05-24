@@ -4,14 +4,14 @@ import createSagaMiddleware from 'redux-saga';
 import { persistStore } from 'redux-persist';
 import reducers from './reducers';
 import rootSaga from './sagas';
-import { history } from './utils/history';
+import history from './utils/history';
 
 const initialState = {};
 const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore() {
   const middlewares = [sagaMiddleware, routerMiddleware(history)];
-  let ENV = process.env.NODE_ENV;
+  const ENV = process.env.NODE_ENV;
   let composeEnhancers = compose;
 
   if (ENV !== 'production') {
@@ -32,6 +32,7 @@ export default function configureStore() {
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
+      // eslint-disable-next-line global-require
       const nextRootReducer = require('./reducers').default;
       store.replaceReducer(nextRootReducer);
     });

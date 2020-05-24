@@ -5,10 +5,14 @@ import loginActions from '@src/actions/login';
 import Loader from '@src/components/common/Loader';
 
 class Login extends Component {
-  state = {
-    username: '',
-    password: '',
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+         password: '',
+    };
+  }
+ 
 
   handleInputChange = (e) => {
     const {
@@ -23,9 +27,10 @@ class Login extends Component {
     e.preventDefault();
     const {
       state: { username, password },
+      props: {loginRequest}
     } = this;
 
-    this.props.loginRequest({ username, password });
+    loginRequest({ username, password });
   };
 
   render() {
@@ -79,19 +84,10 @@ class Login extends Component {
                 >
                   Sign in
                 </button>
-                <label className="checkbox pull-left">
-                  <input type="checkbox" value="remember-me" />
-                  Remember me
-                </label>
-                <a href="#" className="pull-right need-help">
-                  Need help?{' '}
-                </a>
-                <span className="clearfix"></span>
+                <span className="clearfix" />
               </form>
             </div>
-            <a href="#" className="text-center new-account">
-              Create an account{' '}
-            </a>
+          
           </div>
         </div>
       </div>

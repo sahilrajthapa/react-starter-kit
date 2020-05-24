@@ -6,13 +6,13 @@ import indexRoutes from './routes';
 function App() {
   return (
     <Switch>
-      {indexRoutes.map((route, key) => {
+      {indexRoutes.map((route) => {
         if (route.authenticated) {
           return (
             <PrivateRoute
               path={route.path}
               component={route.component}
-              key={key}
+              key={route.name}
             />
           );
         }
@@ -22,7 +22,7 @@ function App() {
             exact
             path={route.path}
             render={(props) => <route.component {...props} />}
-            key={key}
+            key={route.name}
           />
         );
       })}

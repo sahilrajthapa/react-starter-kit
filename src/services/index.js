@@ -9,8 +9,9 @@ export const api = axios.create({
   },
 });
 
-export const authenticated = (api) => {
+export const authenticated = (apiInstance) => {
   const token = localStorage.getItem('token');
-  api.defaults.headers.common['Authorization'] = `Token ${token}`;
-  return api;
+  // eslint-disable-next-line no-param-reassign
+  apiInstance.defaults.headers.common.Authorization = `Token ${token}`;
+  return apiInstance;
 };
