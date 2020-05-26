@@ -9,7 +9,7 @@
     "build": "npm run clean && webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production  --progress",
     "server": "node server",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "lint": "eslint ./src --fix"
+    "lint": "eslint src --ext .js,.jsx --fix"
   },
   "dependencies": {
     "axios": "^0.19.2",
