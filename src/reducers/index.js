@@ -4,6 +4,6 @@ import history from '../utils/history';
 import login from './login';
 
 export default combineReducers({
-    router: connectRouter(history),
-    login,
+  router: connectRouter(history),
+  login,
 });
