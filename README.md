@@ -20,7 +20,7 @@
 ```
   -- src/
     -- actions/      -->  for redux actions
-    -- assests/      -->  for static assests and styles
+    -- assets/       -->  for static assets and styles
     -- components/   -->  for components
         -- common/   -->  for shared components
     -- reducers/     -->  for redux reducers
