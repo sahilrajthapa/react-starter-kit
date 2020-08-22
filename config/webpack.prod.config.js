@@ -11,6 +11,10 @@ const baseConfig = require('./webpack.base.config');
 const prodConfiguration = () => {
   return merge([
     {
+      output: {
+        publicPath: '/',
+        filename: '[name].[contenthash].js',
+      },
       optimization: {
         minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
         splitChunks: {
@@ -34,6 +38,7 @@ const prodConfiguration = () => {
           minRatio: 0,
         }),
       ],
+      devtool: '',
     },
   ]);
 };

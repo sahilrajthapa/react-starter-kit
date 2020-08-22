@@ -89,7 +89,7 @@ module.exports = (env = {}) => {
           'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
         }),
       ],
-      devtool: NODE_ENV === 'production' ? '' : 'eval-source-map',
+      devtool: 'eval-source-map',
     },
   ]);
 };
