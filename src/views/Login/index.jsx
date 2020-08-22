@@ -49,7 +49,7 @@ class Login extends Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 className="text-center login-title">Sign in to continue to Bootsnipp</h1>
+            <h1 className="text-center login-title">Sign in to continue to Bootsnipp.</h1>
             <div className="account-wall">
               <img
                 className="profile-img"
