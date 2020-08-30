@@ -1,12 +1,25 @@
-version: 2.1
-orbs:
-  node: circleci/node@3.0.0
-
+version: 2
 jobs:
   build:
+    docker:
+      - image: circleci/node:10.15.0
     steps:
       - checkout
-      - run: npm run build
+      - restore_cache:
+          name: Restoring dependencies
+          keys:
+            - dependencies-v1-{{ checksum "package.lock" }}
+      - run:
+          name: Installing dependencies
+          command: npm i
+      - save_cache:
+          name: Saving dependencies
+          paths:
+            - node_modules
+          key: dependencies-v1-{{ checksum "package.lock" }}
+      - run:
+          name: Building bunlde
+          command: npm run build
 workflows:
   node-build:
     jobs:
