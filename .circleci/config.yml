@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -18,10 +18,9 @@ jobs:
             - node_modules
           key: dependencies-v1-{{ checksum "package-lock.json" }}
       - run:
-          name: Building bundlee
+          name: Building bundle
           command: npm run build
 workflows:
-  version: 2
   node-build:
     jobs:
       - build
