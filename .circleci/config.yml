@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15.0
+      - image: cimg/node:12.16
     steps:
       - checkout
       - restore_cache:
@@ -18,7 +18,7 @@ jobs:
             - node_modules
           key: dependencies-v1-{{ checksum "package-lock.json" }}
       - run:
-          name: Building bunlde
+          name: Building bundlee
           command: npm run build
 workflows:
   node-build:
