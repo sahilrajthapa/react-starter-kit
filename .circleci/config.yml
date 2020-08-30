@@ -21,6 +21,7 @@ jobs:
           name: Building bundlee
           command: npm run build
 workflows:
+  version: 2
   node-build:
     jobs:
       - build
